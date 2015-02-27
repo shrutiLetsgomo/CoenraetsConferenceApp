@@ -1,0 +1,32 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">Login</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeLogin()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form name="loginForm" novalidate>
+      <div class="list">
+        <label class="item item-input">
+          <input type="text" placeholder="Username" name="username" ng-model="loginData.username" required>
+        </label>
+        <label class="item item-input">
+          <input type="password" placeholder="password"  name="password" ng-model="loginData.password" required>
+        </label>
+        <span  ng-show="loginForm.$submitted || loginForm.password.$touched">
+          <label class="item assertive" ng-show="loginForm.username.$error.required">Enter username</label>
+          <label class="item assertive" ng-show="loginForm.password.$error.required">Enter password</label>
+        </span>
+        <label class="item">
+          <button class="button button-block button-positive" type="submit" data-ng-disabled="loginForm.$invalid" ng-click="doLogin(loginData,loginForm.$valid)">Log in</button>
+        </label>
+        <label class="item">
+          <button class="button button-block button-positive" data-ng-disabled="loginForm.$invalid" ng-click="fbLogin()">
+              Login with Facebook
+          </button>
+      </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>
